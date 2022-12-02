@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="HTML,CSS,JavaScript,Website">
+  <meta name="author" content="Rachel">
+  <title>Seed of Hope</title>
+
+  <meta name="description" content="A simple educational website advocating for environmental conservation." />
+  <meta property="og:title" content="Web Fundamentals Assignment" />
+  <meta property="og:type" content="Website" />
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <style>
+    #events {
+      margin-top: 90px;
+    }
+
+    #events h1 {
+      text-align: center;
+      margin: 1rem;
+    }
+
+    #events .row {
+      display: block;
+    }
+
+    #events .col {
+      width: 100%;
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    #events img {
+      max-width: 85%;
+      height: 200px;
+    }
+
+    /* Full-width input fields */
+    .modal input[type=text],
+    .modal input[type=password],
+    .modal input[type=email] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    /* Add a background color when the inputs get focus */
+    .modal input[type=text]:focus,
+    .modal input[type=password]:focus,
+    .modal input[type=email]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for all buttons */
+    .modal button {
+      background-color: #9bcca7;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    .modal button:hover {
+      opacity: 1;
+    }
+
+    /* Extra styles for the cancel button */
+    .modal .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+
+
+    /* Add padding to container elements */
+    .modal .container {
+      padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: hidden;
+      /* Enable scroll if needed */
+      background-color: #475d4b;
+      padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    .modal hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    /* The Close Button (x) */
+    .modal .close {
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #f1f1f1;
+    }
+
+    .modal .close:hover,
+    .modal .close:focus {
+      color: #f44336;
+      cursor: pointer;
+    }
+
+    /* Clear floats */
+    .modal .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    #events .card-body button {
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #aec880;
+    }
+
+    #events .card-body button:hover {
+      background-color: #8ca461;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+
+      .modal .cancelbtn,
+      .modal .loginbtn {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      #events .row {
+        display: flex;
+      }
+
+      #events img {
+        height: 330px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!--log in modal-->
+  <div id="id01" class="loginModal modal">
+    <span id="closeBtn" onclick="document.getElementById('id01').style.display='none'" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content" action="#" onsubmit="return alert('Successfully logged in');">
+      <div class="container">
+        <h1>Log In</h1>
+        <p>Please fill in this form to log into your account.</p>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <div class="clearfix">
+          <button type="submit" class="loginbtn">Log In</button>
+          <p>Don't have an account yet? <a href="#" style="color:dodgerblue"
+              onclick="document.getElementById('id02').style.display='block'" id="signupBtn">Sign up.</a></p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!--Sign up modal-->
+  <div id="id02" class="signupModal modal">
+    <span id="closeBtn" onclick="document.getElementById('id02').style.display='none'" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content" id="signupForm" action="#">
+      <div class="container">
+        <h1>Sign up</h1>
+        <p>Please fill in this form to register a new account.</p>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required id="password1">
+
+        <label for="psw"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required id="password2">
+
+        <div class="clearfix">
+          <button type="submit" class="loginbtn" id="signupSubmitBtn">Sign Up</button>
+          <p>Already have an account? <a href="#" style="color:dodgerblue">Log in.</a></p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- Navigation bar -->
+  <header class="header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <h1 class="header-title">Seed of Hope</h1>
+    </a>
+    <!-- Hamburger icon -->
+    <input class="side-menu" type="checkbox" id="side-menu" />
+    <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+    <!-- Menu -->
+    <nav class="nav">
+      <ul class="menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Events</a> </li>
+        <li><a id="loginBtn" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!--Event section-->
+  <section id="events">
+    <h1>Upcoming Events</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <img src="../assets/images/cleanup.jpg">
+            <div class="card-body">
+              <h3 class="card-title">Beach Clean Up</h3>
+              <p>Date: 22 December 2022<br>Location: Perhentian Beach</p>
+              <button>Sign Up</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="../assets/images/fabric.png">
+            <div class="card-body">
+              <h3 class="card-title">Fabric Upcycling Workshop</h3>
+              <p>Date: 25 December 2022<br>Location: KLCC</p>
+              <button>Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <img src="../assets/images/soil.png">
+            <div class="card-body">
+              <h3 class="card-title">Tree Planting</h3>
+              <p>Date: 30 December 2022<br>Location: National Park</p>
+              <button>Sign Up</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="../assets/images/zero.png">
+            <div class="card-body">
+              <h3 class="card-title">Zero Waste Cooking</h3>
+              <p>Date: 5 January 2023<br>Location: ABC Studios</p>
+              <button>Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Past Events</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <img src="../assets/images/donate.png">
+              <div class="card-body">
+                <h3 class="card-title">Clothes Donation Drive</h3>
+                <p>Date: 8 November 2022<br>Location: Seed of Hope Center</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <img src="../assets/images/river.png">
+              <div class="card-body">
+                <h3 class="card-title">Riverside Clean Up</h3>
+                <p>Date: 3 December 2022<br>Location: Klang River </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <!--footer starts from here-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="mb10">If you're reading this, it's your sign to join us and make a difference. No matter how big or
+            small your contribution is,
+            we will always celebrate your efforts to make the world a better place.
+          </p>
+        </div>
+
+        <div class="col">
+          <h4>Opening Hours</h4>
+          <p>Monday-Friday</p>
+          <p>9:00am - 6:00pm</p>
+          <p>Weekends</p>
+          <p>10:00am - 4:00pm</p>
+        </div>
+
+        <div class="col">
+          <h4>Contact Us</h4>
+          <ul class="footer_ul_amrc">
+            <li>Phone</li>
+            <li>0123456789</li>
+            <li>Email</li>
+            <li>seedofhope@mail.com</li>
+            <li>Address</li>
+            <li>123, ABC street</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="footer-text">Designed by Rachel Lim 2022</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js" type="module"></script>
+</body>
+
+</html>
